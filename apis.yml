@@ -1,8 +1,32 @@
 aid: zelis
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zelis.png
 name: Zelis
-description: 'Zelis is a company surfaced as a portfolio company of bain-capital-ventures, norwest-venture-partners
-  and added to the API Evangelist network as a stub for enrichment. Sector: healthcare. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: >-
+  Zelis is a healthcare financial technology company that modernizes the
+  business of healthcare by connecting payers, providers, and members through a
+  connected platform for claims cost management, electronic payments, and member
+  and provider communications. Its solutions span network analytics and
+  optimization, claims pricing, editing and payment integrity, electronic
+  provider payments (including the ZAPP platform), member engagement, price
+  transparency and Transparency in Coverage compliance, and provider directory
+  data. Zelis exposes these capabilities to partners through a public developer
+  portal and API marketplace, where integrators can register for OAuth2
+  client-credential access to a catalog of claims, ID card, provider directory,
+  enrollment, payments, and member-engagement communication APIs. The company
+  serves 725+ payers and processes payments to hundreds of thousands of
+  healthcare providers.
 url: https://raw.githubusercontent.com/api-evangelist/zelis/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -13,11 +37,39 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Healthcare
-apis: []
+- Healthcare Payments
+- Claims
+- Payments
+- Price Transparency
+- Provider Directory
+- Member Engagement
+- Insurance
+- FinTech
+apis:
+- name: Zelis API
+  description: >-
+    Zelis' partner-facing API platform, published through the Zelis developer
+    portal and API marketplace. The catalog spans claims document search and
+    viewing, member ID card search and viewing, provider directory, enrollment
+    communications, payments communications, and member activation/reward
+    surfaces. Access is gated behind OAuth2 client-credential tokens plus an
+    Azure API Management subscription key (Ocp-Apim-Subscription-Key).
+  humanURL: https://developer.zelis.com/
+  baseURL: https://api.zelis.com/
+  tags:
+  - Healthcare
+  - Claims
+  - Payments
+  - Provider Directory
+  properties:
+  - type: Authentication
+    url: authentication/zelis-authentication.yml
+  - type: Conventions
+    url: conventions/zelis-conventions.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +78,38 @@ maintainers:
 common:
 - type: Website
   url: https://www.zelis.com/
+- type: DeveloperPortal
+  url: https://developer.zelis.com/
+- type: Documentation
+  url: https://developer.zelis.com/guides
+- type: APIReference
+  url: https://marketplace.zelis.com/api-catalog/
+- type: GettingStarted
+  url: https://developer.zelis.com/guides/getting-started-guests
+- type: SignUp
+  url: https://devportalsignup.zelis.com/
+- type: Pricing
+  url: https://marketplace.zelis.com/connect-with-zelis/
+- type: Support
+  url: https://developer.zelis.com/support
+- type: Blog
+  url: https://www.zelis.com/blog/
+- type: PrivacyPolicy
+  url: https://www.zelis.com/privacy-policy/
+- type: TermsOfService
+  url: https://www.zelis.com/terms-of-use/
+- type: Authentication
+  url: authentication/zelis-authentication.yml
+- type: Conventions
+  url: conventions/zelis-conventions.yml
+- type: Conformance
+  url: conformance/zelis-conformance.yml
+- type: LLMsTxt
+  url: llms/zelis-llms.txt
+- type: DomainSecurity
+  url: security/zelis-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 5
+  pass: local-v1

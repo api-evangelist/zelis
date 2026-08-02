@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: derived
+source: https://developer.zelis.com/guides/getting-started-guests
+note: >-
+  Derived from the publicly documented Zelis API authentication/onboarding
+  guide. No OpenAPI specification was available to inspect (the developer-portal
+  API catalog is gated behind registration), so standards below are asserted
+  only from documented behavior. Absence of evidence is recorded as
+  conforms:false, not fabricated.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: docs document an OAuth2 client-credentials grant with a token endpoint at https://api.zelis.com/auth/token
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: client_id + client_secret exchanged for a 3600s bearer token
+- id: rfc6750-bearer-token
+  conforms: true
+  evidence: bearer token presented in the Authorization header on each request
+- id: oidc
+  conforms: false
+  evidence: no /.well-known/openid-configuration discovery document found
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: false
+  evidence: no /.well-known/oauth-authorization-server document found
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no application/problem+json error envelope documented publicly
+- id: tls
+  conforms: true
+  evidence: HTTPS-only, TLSv1.3 on api.zelis.com / developer.zelis.com (domain-security probe)
+- id: hipaa
+  conforms: unknown
+  evidence: healthcare-payments domain implies HIPAA handling, but no public certification/attestation page was located

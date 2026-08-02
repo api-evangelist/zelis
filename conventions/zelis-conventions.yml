@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.zelis.com/guides/getting-started-guests
+docs: https://developer.zelis.com/guides
+summary: >-
+  Cross-cutting request/response semantics for the Zelis API platform, captured
+  from the developer-portal getting-started guide. Zelis fronts its APIs with
+  Azure API Management; every call carries an OAuth2 bearer token plus a
+  subscription key, over HTTPS with JSON bodies.
+authentication:
+  style: oauth2-client-credentials + subscription-key
+  bearer_header: Authorization
+  subscription_key_header: Ocp-Apim-Subscription-Key
+  token_url: https://api.zelis.com/auth/token
+  token_ttl_seconds: 3600
+  ref: authentication/zelis-authentication.yml
+transport:
+  scheme: https-only
+  content_type: application/json
+  base_url: https://api.zelis.com/
+idempotency:
+  supported: unknown
+  note: No idempotency-key contract documented on the public getting-started guide.
+pagination:
+  style: unknown
+  note: Not documented on the public getting-started guide; varies per product API.
+versioning:
+  scheme: unknown
+  note: Not documented on the public getting-started guide.
+error_envelope:
+  format: unknown
+  note: >-
+    Individual product APIs return JSON error bodies; a provider-wide error
+    envelope is not published on the public getting-started guide.
+rate_limiting:
+  signal: unknown
+  note: No rate-limit headers or quotas documented on the public getting-started guide.
+cross_links:
+  authentication: authentication/zelis-authentication.yml
+  conformance: conformance/zelis-conformance.yml

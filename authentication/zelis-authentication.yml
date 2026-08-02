@@ -1,0 +1,48 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.zelis.com/guides/getting-started-guests
+docs: https://developer.zelis.com/guides/getting-started-guests
+summary:
+  types:
+  - oauth2
+  - apiKey
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+  notes: >-
+    Zelis API access requires TWO credentials on every call: an OAuth2 bearer
+    token obtained via the client-credentials grant, plus an Azure API
+    Management subscription key sent in the Ocp-Apim-Subscription-Key header.
+    All requests are HTTPS-only with JSON payloads.
+schemes:
+- name: oauth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  token_url: https://api.zelis.com/auth/token
+  token_ttl_seconds: 3600
+  credentials:
+    client_id: unique identifier for the API client
+    client_secret: client secret, valid for one year, authenticates the API client
+    tenant_id: optional exclusive identifier for an organization within Zelis
+  source: docs
+- name: subscriptionKey
+  type: apiKey
+  in: header
+  parameter_name: Ocp-Apim-Subscription-Key
+  description: >-
+    Azure API Management subscription key that identifies the calling
+    application; issued in the developer portal under Profile > My Account >
+    Access Keys.
+  source: docs
+onboarding:
+  steps:
+  - Register via the developer-portal signup form (business email required)
+  - Confirm email address within 48 hours
+  - Zelis team reviews and approves the request
+  - Receive a temporary password (expires in 48 hours) and set a new password on first login
+  - Retrieve access keys under Profile > My Account > Access Keys
+  signup_url: https://devportalsignup.zelis.com/
+environments:
+- production
+- sandbox (where available per product)
