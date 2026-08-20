@@ -48,6 +48,17 @@ tags:
 - Provider Directory
 - Member Engagement
 - Insurance
+- Fintech
+tags_raw:
+- Company
+- Healthcare
+- Healthcare Payments
+- Claims
+- Payments
+- Price Transparency
+- Provider Directory
+- Member Engagement
+- Insurance
 - FinTech
 apis:
 - name: Zelis API
